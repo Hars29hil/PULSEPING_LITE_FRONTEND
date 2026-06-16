@@ -142,7 +142,7 @@ export default function MonitorsPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.1 }}
             className="glass-panel"
-            style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+            style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -150,24 +150,24 @@ export default function MonitorsPage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', marginBottom: '4px' }}>{monitor.name}</h3>
-                <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>{monitor.url}</div>
+                <div style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', wordBreak: 'break-all' }}>{monitor.url}</div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: '1.125rem', fontWeight: 600 }}>{monitor.uptime_percentage}%</div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Uptime</div>
               </div>
-              <div style={{ textAlign: 'right', width: '80px' }}>
+              <div style={{ textAlign: 'right', minWidth: '80px' }}>
                 <div style={{ fontSize: '1.125rem', fontWeight: 600 }}>{monitor.response_time || '-'} ms</div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Response</div>
               </div>
               <div style={{ display: 'flex', gap: '12px' }}>
-                <button onClick={() => handleTogglePause(monitor.id, monitor.status)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}>
+                <button onClick={() => handleTogglePause(monitor.id, monitor.status)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '8px' }}>
                   {monitor.status === 'paused' ? <Play size={20} /> : <Pause size={20} />}
                 </button>
-                <button onClick={() => handleDelete(monitor.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}>
+                <button onClick={() => handleDelete(monitor.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '8px' }}>
                   <Trash2 size={20} />
                 </button>
               </div>

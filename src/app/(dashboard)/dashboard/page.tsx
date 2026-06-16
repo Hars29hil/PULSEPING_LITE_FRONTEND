@@ -199,7 +199,7 @@ export default function DashboardOverview() {
                 key={monitor.id} 
                 className="glass-panel"
                 whileHover={{ scale: 1.01 }}
-                style={{ padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+                style={{ padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', flexWrap: 'wrap', gap: '16px' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <div style={{ 
@@ -209,15 +209,15 @@ export default function DashboardOverview() {
                   }} />
                   <div>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 500 }}>{monitor.name}</h3>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>{monitor.url}</p>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', wordBreak: 'break-all' }}>{monitor.url}</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
                   <div style={{ textAlign: 'right' }}>
                     <div style={{ fontSize: '1.1rem', fontWeight: 500 }}>{monitor.uptime_percentage}%</div>
                     <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>Uptime</div>
                   </div>
-                  <div style={{ textAlign: 'right', width: '60px' }}>
+                  <div style={{ textAlign: 'right', minWidth: '60px' }}>
                     <div style={{ fontSize: '1.1rem', fontWeight: 500 }}>{monitor.response_time || '-'} ms</div>
                     <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>Latency</div>
                   </div>
